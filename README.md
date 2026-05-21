@@ -2,11 +2,11 @@
 
 ## Live Demo
 
-- Include a link to the live version of the project hosted on Render.
+https://final-project-melissa.onrender.com
 
 ## Project Overview
 
-- Briefly describe the project and its purpose.
+My porject is about writing your younger self a message. It could be hopeful, something you regret, something you gained confidence in, something you are healing from, and somethign you learned to love.
 
 ## Endpoints
 

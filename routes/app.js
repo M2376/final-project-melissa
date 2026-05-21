@@ -8,8 +8,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const entriesRouter = require('./routes/entries');
+const indexRouter = require('./index');
+const entriesRouter = require('./entries');
 
 const app = express();
 
@@ -80,3 +80,4 @@ app.listen(3000, () => {
 
 
 module.exports = app;
+console.log("MONGODB URL:", process.env.MONGODB_URL);
