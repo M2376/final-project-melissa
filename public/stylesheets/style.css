@@ -57,6 +57,16 @@ button:hover,
     background-color: #a96d9c;
     transform: scale(1.05);
 }
+
+.hero .start-btn {
+    margin-top: 20px;
+}
+
+form button {
+    margin-top: 15px;
+}
+
+
 .form-section {
     display: flex;
     justify-content: center;
