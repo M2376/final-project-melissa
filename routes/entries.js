@@ -2,89 +2,71 @@ var express = require('express');
 
 var router = express.Router();
 
-const Entry = require('../models/Entry');
 
 
+const Entry = require("../models/Entry");
 
-router.get('/', async function (req, res, next) {
-
+router.get("/", async (req, res) => {
     try {
-
-        const entries =
-            await Entry.find()
-                .sort({ createdAt: -1 });
-
+        const entries = await Entry.find().sort({ createdAt: -1 });
         res.json(entries);
-
-    } catch (error) {
-
-        res.status(500).json({
-            error: "Failed to fetch entries"
-        });
-
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
-
 });
 
 
-router.post('/', async function (req, res, next) {
+router.post('/', async function (req, res) {
 
     try {
 
         const newEntry = new Entry({
 
             title: req.body.title,
-
             currentAge: req.body.currentAge,
-
             youngerAge: req.body.youngerAge,
-
             emotion: req.body.emotion,
-
             message: req.body.message,
 
-            tags: req.body.tags
+            tags: Array.isArray(req.body.tags)
+                ? req.body.tags
+                : (req.body.tags || "")
+                    .split(",")
+                    .map(tag => tag.trim())
+                    .filter(tag => tag !== "")
 
         });
 
-        const savedEntry =
-            await newEntry.save();
+        const savedEntry = await newEntry.save();
 
         res.status(201).json(savedEntry);
 
     } catch (error) {
 
         res.status(400).json({
-            error: "Failed to create entry"
+            error: error.message
         });
 
     }
+    // console.log("BODY RECEIVED:", req.body);
 
 });
 
 
 
-router.get('/:id', async function (req, res, next) {
+router.get("/", async (req, res) => {
 
     try {
 
-        const entry =
-            await Entry.findById(req.params.id);
+        const entries =
+            await Entry.find({}).sort({ createdAt: -1 });
 
-        if (!entry) {
+        res.json(entries);
 
-            return res.status(404).json({
-                error: "Entry not found"
-            });
-
-        }
-
-        res.json(entry);
-
-    } catch (error) {
+    } catch (err) {
 
         res.status(500).json({
-            error: "Invalid ID"
+            error: err.message
         });
 
     }

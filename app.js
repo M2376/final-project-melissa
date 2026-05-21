@@ -39,7 +39,6 @@ app.use('/', indexRouter);
 app.use('/entries', entriesRouter);
 
 
-// ---------------- DATABASE ----------------
 
 mongoose.connect(process.env.MONGODB_URL)
 
@@ -73,6 +72,10 @@ app.use(function (err, req, res, next) {
 
   res.render('error');
 
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
 
 

@@ -1,65 +1,66 @@
-// Your front end javascript goes here
-const form = document.getElementById("entryForm");
+document.addEventListener("DOMContentLoaded", function () {
+    // Your front end javascript goes here
+    const form = document.getElementById("entryForm");
 
-const entriesContainer =
-    document.getElementById("entries");
+    const entriesContainer =
+        document.getElementById("entries");
 
-const filterEmotion =
-    document.getElementById("filterEmotion");
-
-
-async function loadEntries() {
-
-    try {
-
-        const response =
-            await fetch("/entries");
-
-        const entries =
-            await response.json();
-
-        displayEntries(entries);
-
-    } catch (error) {
-
-        console.log(
-            "Error loading entries:",
-            error
-        );
-
-    }
-
-}
+    const filterEmotion =
+        document.getElementById("filterEmotion");
 
 
+    async function loadEntries() {
 
+        try {
 
-function displayEntries(entries) {
+            const response =
+                await fetch("/entries");
 
-    entriesContainer.innerHTML = "";
+            const entries =
+                await response.json();
 
-    entries.forEach((entry) => {
+            displayEntries(entries);
 
-        const card =
-            document.createElement("div");
+        } catch (error) {
 
-        card.classList.add("letter-card");
-
-
-        // format tags
-        let formattedTags = "";
-
-        if (entry.tags) {
-
-            formattedTags =
-                entry.tags
-                    .map(tag => `#${tag}`)
-                    .join(" ");
+            console.log(
+                "Error loading entries:",
+                error
+            );
 
         }
 
+    }
 
-        card.innerHTML = `
+
+
+
+    function displayEntries(entries) {
+
+        entriesContainer.innerHTML = "";
+
+        entries.forEach((entry) => {
+
+            const card =
+                document.createElement("div");
+
+            card.classList.add("letter-card");
+
+
+            // format tags
+            let formattedTags = "";
+
+            if (entry.tags) {
+
+                formattedTags =
+                    entry.tags
+                        .map(tag => `#${tag}`)
+                        .join(" ");
+
+            }
+
+
+            card.innerHTML = `
 
             <h3>
                 ${entry.title}
@@ -90,144 +91,145 @@ function displayEntries(entries) {
 
         `;
 
-        entriesContainer.appendChild(card);
+            entriesContainer.appendChild(card);
 
-    });
+        });
 
-}
-
-
-
-form.addEventListener(
-    "submit",
-    async function (event) {
-
-        event.preventDefault();
+    }
 
 
-        const entryData = {
 
-            title:
-                document.getElementById("title").value,
+    form.addEventListener(
+        "submit",
+        async function (event) {
 
-            currentAge:
-                document.getElementById("currentAge").value,
-
-            youngerAge:
-                document.getElementById("youngerAge").value,
-
-            emotion:
-                document.getElementById("emotion").value,
-
-            message:
-                document.getElementById("message").value,
-
-            tags:
-                document.getElementById("tags")
-                    .value
-                    .split(",")
-                    .map(tag => tag.trim())
-                    .filter(tag => tag !== "")
-
-        };
+            event.preventDefault();
 
 
-        try {
+            const entryData = {
 
-            const response =
-                await fetch("/entries", {
+                title:
+                    document.getElementById("title").value,
 
-                    method: "POST",
+                currentAge:
+                    document.getElementById("currentAge").value,
 
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
+                youngerAge:
+                    document.getElementById("youngerAge").value,
 
-                    body:
-                        JSON.stringify(entryData)
+                emotion:
+                    document.getElementById("emotion").value,
 
-                });
+                message:
+                    document.getElementById("message").value,
+
+                tags:
+                    document.getElementById("tags")
+                        .value
+                        .split(",")
+                        .map(tag => tag.trim())
+                        .filter(tag => tag !== "")
+
+            };
 
 
-            if (!response.ok) {
+            try {
 
-                throw new Error(
-                    "Failed to create entry"
+                const response =
+                    await fetch("/entries", {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(entryData)
+
+                    });
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Failed to create entry"
+                    );
+
+                }
+
+
+                // clear form
+                form.reset();
+
+
+                // reload entries
+                loadEntries();
+
+            } catch (error) {
+
+                console.log(
+                    "Error submitting form:",
+                    error
                 );
 
             }
 
-
-            // clear form
-            form.reset();
-
-
-            // reload entries
-            loadEntries();
-
-        } catch (error) {
-
-            console.log(
-                "Error submitting form:",
-                error
-            );
-
         }
-
-    }
-);
+    );
 
 
 
-filterEmotion.addEventListener(
-    "change",
-    async function () {
+    filterEmotion.addEventListener(
+        "change",
+        async function () {
 
-        try {
+            try {
 
-            const response =
-                await fetch("/entries");
+                const response =
+                    await fetch("/entries");
 
-            const entries =
-                await response.json();
+                const entries =
+                    await response.json();
 
-            const selectedEmotion =
-                filterEmotion.value;
+                const selectedEmotion =
+                    filterEmotion.value;
 
 
-            if (selectedEmotion === "all") {
+                if (selectedEmotion === "all") {
 
-                displayEntries(entries);
+                    displayEntries(entries);
 
-            } else {
+                } else {
 
-                const filteredEntries =
-                    entries.filter((entry) => {
+                    const filteredEntries =
+                        entries.filter((entry) => {
 
-                        return (
-                            entry.emotion ===
-                            selectedEmotion
-                        );
+                            return (
+                                entry.emotion ===
+                                selectedEmotion
+                            );
 
-                    });
+                        });
 
-                displayEntries(filteredEntries);
+                    displayEntries(filteredEntries);
+
+                }
+
+            } catch (error) {
+
+                console.log(
+                    "Error filtering entries:",
+                    error
+                );
 
             }
 
-        } catch (error) {
-
-            console.log(
-                "Error filtering entries:",
-                error
-            );
-
         }
-
-    }
-);
+    );
 
 
 
-loadEntries();
+    loadEntries();
+});
