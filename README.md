@@ -2,7 +2,6 @@
 
 ## Live Demo
 
-https://final-project-melissa.onrender.com
 
 ## Project Overview
 
