@@ -39,9 +39,9 @@ body {
 }
 
 
-.start-btn,
-button {
-    margin-top: 70px;
+/* Base button style */
+button,
+.start-btn {
     padding: 12px 25px;
     border: none;
     border-radius: 30px;
@@ -50,12 +50,24 @@ button {
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s ease;
+    display: inline-block;
 }
 
-.start-btn:hover,
-button:hover {
+/* Hover effect */
+button:hover,
+.start-btn:hover {
     background-color: #a96d9c;
     transform: scale(1.05);
+}
+
+/* ONLY hero button spacing */
+.hero .start-btn {
+    margin-top: 20px;
+}
+
+/* ONLY form button spacing */
+form button {
+    margin-top: 15px;
 }
 
 
