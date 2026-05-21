@@ -6,14 +6,6 @@ var router = express.Router();
 
 const Entry = require("../models/Entry");
 
-router.get("/", async (req, res) => {
-    try {
-        const entries = await Entry.find().sort({ createdAt: -1 });
-        res.json(entries);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
 
 
 router.post('/', async function (req, res) {
@@ -48,18 +40,16 @@ router.post('/', async function (req, res) {
         });
 
     }
-    
+
 
 });
-
 
 
 router.get("/", async (req, res) => {
 
     try {
 
-        const entries =
-            await Entry.find({}).sort({ createdAt: -1 });
+        const entries = await Entry.find({}).sort({ createdAt: -1 });
 
         res.json(entries);
 
