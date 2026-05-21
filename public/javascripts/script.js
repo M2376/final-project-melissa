@@ -135,9 +135,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!response.ok) {
 
-                    throw new Error(
-                        "Failed to create entry"
-                    );
+                    const errorData = await response.json();
+
+                    throw new Error(errorData.error);
 
                 }
 
