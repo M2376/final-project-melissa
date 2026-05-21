@@ -47,17 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
             card.classList.add("letter-card");
 
 
-            // format tags
-            let formattedTags = "";
-
-            if (entry.tags) {
-
-                formattedTags =
-                    entry.tags
-                        .map(tag => `#${tag}`)
-                        .join(" ");
-
-            }
 
 
             card.innerHTML = `
@@ -121,14 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.getElementById("emotion").value,
 
                 message:
-                    document.getElementById("message").value,
-
-                tags:
-                    document.getElementById("tags")
-                        .value
-                        .split(",")
-                        .map(tag => tag.trim())
-                        .filter(tag => tag !== "")
+                    document.getElementById("message").value
 
             };
 

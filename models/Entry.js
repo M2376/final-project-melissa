@@ -7,7 +7,6 @@ const EntrySchema = new mongoose.Schema({
     youngerAge: Number,
     emotion: String,
     message: String,
-    tags: [String],
 
     createdAt: {
         type: Date,
