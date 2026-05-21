@@ -41,7 +41,7 @@ body {
 
 .start-btn,
 button {
-    margin-top: 20px;
+    margin-top: 70px;
     padding: 12px 25px;
     border: none;
     border-radius: 30px;
@@ -110,7 +110,6 @@ textarea {
 }
 
 
-/* GALLERY */
 .gallery {
     margin-top: 40px;
 
@@ -120,7 +119,6 @@ textarea {
 }
 
 
-/* LETTER CARD */
 .letter-card {
     background: white;
     padding: 25px;
