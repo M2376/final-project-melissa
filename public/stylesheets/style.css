@@ -1,1 +1,209 @@
-/* Your CSS goes here  */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #fdf6f0, #f8e8ee);
+    color: #333;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.hero h1 {
+    font-family: 'Caveat', cursive;
+    font-size: 5rem;
+    color: #8b5e83;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+
+.start-btn,
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background-color: #c38eb4;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.start-btn:hover,
+button:hover {
+    background-color: #a96d9c;
+    transform: scale(1.05);
+}
+
+
+.form-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+#entryForm {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+.filter-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.filter-section h2 {
+    margin-bottom: 20px;
+    color: #8b5e83;
+}
+
+
+/* GALLERY */
+.gallery {
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+
+/* LETTER CARD */
+.letter-card {
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    position: relative;
+
+    animation: fadeUp 0.7s ease;
+}
+
+
+.letter-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.12);
+}
+
+
+.letter-card h3 {
+    color: #8b5e83;
+    margin-bottom: 15px;
+}
+
+
+.letter-card p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+
+.letter-card span {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    #entryForm {
+        padding: 20px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+}

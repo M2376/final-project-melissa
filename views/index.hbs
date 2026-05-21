@@ -1,2 +1,133 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<section class="hero">
+
+    <h1>To My Younger Self</h1>
+
+    <p class="intro-text">
+
+        Write a message to the younger version
+        of yourself.
+
+        Share advice, healing, hope,
+        regrets, or lessons you wish
+        you knew earlier.
+
+    </p>
+
+    <a href="#entryForm">
+
+        <button class="start-btn">
+
+            Write a Letter
+
+        </button>
+
+    </a>
+
+</section>
+
+
+<section class="form-section">
+
+    <form id="entryForm">
+
+
+        <input type="text" id="title" placeholder="Letter Title" required />
+
+
+
+        <input type="number" id="currentAge" placeholder="Your Current Age" />
+
+
+
+        <input type="number" id="youngerAge" placeholder="Age You're Writing To" />
+
+
+
+        <select id="emotion">
+
+            <option value="Hope">
+                Hope
+            </option>
+
+            <option value="Regret">
+                Regret
+            </option>
+
+            <option value="Love">
+                Love
+            </option>
+
+            <option value="Confidence">
+                Confidence
+            </option>
+
+            <option value="Healing">
+                Healing
+            </option>
+
+        </select>
+
+
+
+        <textarea id="message" placeholder="Write your message..." required></textarea>
+
+
+
+        <input type="text" id="tags" placeholder="family, school, dreams" />
+
+
+
+        <button type="submit">
+
+            Send Letter
+
+        </button>
+
+    </form>
+
+</section>
+
+
+
+
+<section class="filter-section">
+
+    <h2>Browse Letters</h2>
+
+    <select id="filterEmotion">
+
+        <option value="all">
+            All Emotions
+        </option>
+
+        <option value="Hope">
+            Hope
+        </option>
+
+        <option value="Regret">
+            Regret
+        </option>
+
+        <option value="Love">
+            Love
+        </option>
+
+        <option value="Confidence">
+            Confidence
+        </option>
+
+        <option value="Healing">
+            Healing
+        </option>
+
+    </select>
+
+</section>
+
+
+
+
+<section id="entries-section">
+    <h2>Letters from others</h2>
+    <div id="entries"></div>
+</section>
