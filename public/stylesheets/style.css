@@ -39,7 +39,6 @@ body {
 }
 
 
-/* Base button style */
 button,
 .start-btn {
     padding: 12px 25px;
@@ -53,24 +52,11 @@ button,
     display: inline-block;
 }
 
-/* Hover effect */
 button:hover,
 .start-btn:hover {
     background-color: #a96d9c;
     transform: scale(1.05);
 }
-
-/* ONLY hero button spacing */
-.hero .start-btn {
-    margin-top: 20px;
-}
-
-/* ONLY form button spacing */
-form button {
-    margin-top: 15px;
-}
-
-
 .form-section {
     display: flex;
     justify-content: center;
