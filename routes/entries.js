@@ -5,9 +5,6 @@ var router = express.Router();
 const Entry = require('../models/Entry');
 
 
-// ---------------------------
-// GET ALL ENTRIES
-// ---------------------------
 
 router.get('/', async function (req, res, next) {
 
@@ -29,10 +26,6 @@ router.get('/', async function (req, res, next) {
 
 });
 
-
-// ---------------------------
-// CREATE ENTRY
-// ---------------------------
 
 router.post('/', async function (req, res, next) {
 
@@ -70,9 +63,6 @@ router.post('/', async function (req, res, next) {
 });
 
 
-// ---------------------------
-// GET ONE ENTRY
-// ---------------------------
 
 router.get('/:id', async function (req, res, next) {
 
@@ -102,9 +92,6 @@ router.get('/:id', async function (req, res, next) {
 });
 
 
-// ---------------------------
-// UPDATE ENTRY
-// ---------------------------
 
 router.put('/:id', async function (req, res, next) {
 
@@ -139,10 +126,6 @@ router.put('/:id', async function (req, res, next) {
 
 });
 
-
-// ---------------------------
-// DELETE ENTRY
-// ---------------------------
 
 router.delete('/:id', async function (req, res, next) {
 
