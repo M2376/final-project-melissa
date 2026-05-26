@@ -9,6 +9,7 @@ const Entry = require("../models/Entry");
 
 
 router.post('/', async function (req, res) {
+    console.log("POST HIT");
 
     try {
 

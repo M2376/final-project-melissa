@@ -72,11 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             </div>
 
-            <div class="tags">
-
-                ${formattedTags}
-
-            </div>
 
         `;
 

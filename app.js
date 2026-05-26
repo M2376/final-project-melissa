@@ -40,7 +40,7 @@ app.use('/entries', entriesRouter);
 
 
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(process.env.MONGODB_URL, {dbName: "test"})
 
   .then(() => {
     console.log('Connected to MongoDB!');
