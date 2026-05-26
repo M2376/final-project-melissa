@@ -9,20 +9,20 @@ My porject is about writing your younger self a message. It could be hopeful, so
 
 ## Endpoints
 
-- List all the endpoints of the API in this project with a brief description of what each endpoint does.
+- Get and entires to save the messages
 
 ## Technologies Used
 
 - List the technologies and tools used in the project:
     - **Languages**: HTML, CSS, JavaScript
-    - **Libraries**: (e.g., GSAP for animations)
-    - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
+    - **Libraries**: Handlebars
+    - **Other**: MongoDB, VSC, and Google
 
 ## Credits
+- Google fonts
+- Youtube Mongodb tutorial video
 
-- List any third-party assets used in the project (e.g., sound effects, images, fonts) and provide proper attribution.
-- Acknowledge any resources, tutorials, or references you used to help complete the project.
 
 ## Future Enhancements
 
-- List any features you would’ve liked to add if given more time
+- If given mroe time, I would have liked to add more organization to the message boxes perhaps with better spacing. I would have like to add perhaps emojis to dipslay the different emotions.
